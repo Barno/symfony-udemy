@@ -3,8 +3,17 @@
 {% block body %}
     <h1>Create User</h1>
 
-    {{ form_start(form) }}
-    {{ form_widget(form) }}
+    {{ form_start(form,{'attr':{'novalidate':'novalidate'}}) }}
+
+    <div style="background-color: #5eb5e0">
+        {{ form_label(form.name) }}
+        {{ form_errors(form.name) }}
+        {{ form_widget(form.name) }}
+    </div>
+
+    {{ form_row(form.avatar) }}
+
+
     <button type="submit">Create User</button>
     {{ form_end(form) }}
 
