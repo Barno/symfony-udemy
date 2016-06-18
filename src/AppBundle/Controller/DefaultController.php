@@ -32,13 +32,7 @@ class DefaultController extends Controller
         if($form->isValid() && $form->isSubmitted()){
 
             $em = $this->getDoctrine()->getManager();
-
-            /**
-             * @var $file UploadedFile
-             */
-            $file = $user->getAvatar();
-            $fileName = md5(uniqid()).'.'.$file->guessExtension();
-            $file->move($this->getParameter('upload_dir'),$fileName);
+            $fileName = $this->get('app.avatar_upload')->upload($user->getAvatar());
             $user->setAvatar($fileName);
             $em->persist($user);
             $em->flush();
