@@ -2,6 +2,12 @@
 # http://symfony.com/doc/current/book/service_container.html
 parameters:
     app.avatar_size:
+
+        large:
+            name: large
+            max_width: 1000
+            max_height: 1000
+
         thumbnail:
             name: thumb
             max_width: 200
@@ -21,8 +27,8 @@ parameters:
 services:
     app.avatar_upload:
         class: AppBundle\FileUploader
-        arguments: ["%upload_dir%"]
+        arguments: ["%upload_dir%","@app.avatar_resize"]
 
     app.avatar_resize:
         class: AppBundle\FileResizer
-        arguments: ["%upload_dir%","%app.avatar_size%"]
+        arguments: ["%upload_dir%","%app.avatar_size%","@filesystem"]
