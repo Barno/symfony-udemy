@@ -39,7 +39,7 @@ class User
      *   maxHeight="800",
      *   maxWidth="800",
      *   mimeTypes={"image/png"},
-     *   mimeTypesMessage="Sono permessi solo png"
+     *   mimeTypesMessage="user.avatar.mimetype"
      * )
      * @Assert\NotBlank()
      * @ORM\Column(name="avatar", type="string", length=255)

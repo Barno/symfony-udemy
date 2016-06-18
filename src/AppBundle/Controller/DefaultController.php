@@ -23,7 +23,7 @@ class DefaultController extends Controller
 
 
     /**
-     * @Route("/users/new", name="users_new")
+     * @Route("{_locale}/users/new", name="users_new", requirements={"_locale" = "en|it"})
      * @Method({"GET","POST"})
      */
     public function createUserAction(Request $request)
@@ -48,7 +48,7 @@ class DefaultController extends Controller
     }
 
     /**
-     * @Route("/users/{id}/edit", name="users_edit")
+     * @Route("{_locale}/users/{id}/edit", name="users_edit",requirements={"_locale" = "en|it"}))
      * @Method({"GET","PUT"})
      */
     public function editAction(Request $request, User $user){
