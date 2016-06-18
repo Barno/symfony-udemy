@@ -3,6 +3,7 @@
 namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * User
@@ -24,13 +25,23 @@ class User
     /**
      * @var string
      *
+     * @Assert\NotBlank()
      * @ORM\Column(name="name", type="string", length=255)
      */
     private $name;
 
     /**
      * @var string
-     *
+     * @Assert\Image(
+     *   maxSize="1M",
+     *   minHeight="100",
+     *   minWidth="100",
+     *   maxHeight="800",
+     *   maxWidth="800",
+     *   mimeTypes={"image/png"},
+     *   mimeTypesMessage="Sono permessi solo png"
+     * )
+     * @Assert\NotBlank()
      * @ORM\Column(name="avatar", type="string", length=255)
      */
     private $avatar;
