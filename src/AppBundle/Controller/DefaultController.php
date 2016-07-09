@@ -9,10 +9,19 @@ use Symfony\Component\HttpFoundation\Request;
 class DefaultController extends Controller
 {
     /**
-     * @Route("/", name="homepage")
+     * @Route("/{nome}/{cognome}", name="homepage")
      */
-    public function indexAction(Request $request)
+    public function indexAction(Request $request,$nome)
     {
-        return $this->render('default/index.html.twig',array());
+        echo $nome;
+        echo "<br/>";
+        echo $request->get('nome');
+        echo "<br/>";
+        echo $request->attributes->get('nome');
+        echo "<br/>";
+        echo $request->attributes->get('_route_params')['nome'];
+
+
+        return $this->render('default/index.html.twig');
     }
 }
