@@ -5,11 +5,42 @@ namespace AppBundle\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\HttpFoundation\BinaryFileResponse;
 use Symfony\Component\HttpFoundation\Cookie;
+use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpFoundation\ResponseHeaderBag;
 
 class DefaultController extends Controller {
+
+  /**
+   * @Route("/file", name="file")
+   * @Method({"GET"})
+   */
+  public function fileAction(Request $request) {
+
+    $file = $this->get('kernel')->getRootDir().'/../web/uploads/Symfony_cookbook_3.0.pdf';
+    $response = new BinaryFileResponse($file);
+
+    $dispostion = $response->headers->makeDisposition(
+            ResponseHeaderBag::DISPOSITION_ATTACHMENT,
+            'guidaSymfony.pdf');
+
+    $response->deleteFileAfterSend(true);
+    $response->headers->set('Content-Disposition', $dispostion);
+    return $response;
+  }
+
+  /**
+   * @Route("/redirect", name="redirect")
+   * @Method({"GET"})
+   */
+  public function redirectAction(Request $request) {
+
+    $response = new RedirectResponse('http://www.udemy.com');
+    return $response;
+  }
 
   /**
    * @Route("/", name="homepage")
