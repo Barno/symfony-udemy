@@ -36,9 +36,9 @@ class DefaultController extends Controller
             }else{
                 $errors = $form->getErrors(true,true);
 
-                $err = array();
+                $msg['status'] = 'KO';
                 foreach ($errors as $error) {
-                    $err[] = $error->getMessage(). " <br/>";
+                    $err[] = $error->getMessage(). '<br/>';
                 }
                 $response->setData(array('status' => 'KO','errors' => $err));
 
