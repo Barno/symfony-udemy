@@ -4,6 +4,7 @@ namespace AppBundle\Controller;
 
 use AppBundle\Entity\Utente;
 use AppBundle\Form\UtenteType;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\JsonResponse;
@@ -13,6 +14,7 @@ class DefaultController extends Controller
 {
     /**
      * @Route("/", name="homepage")
+     * @Method({"GET","POST"})
      */
     public function indexAction(Request $request)
     {
@@ -30,18 +32,16 @@ class DefaultController extends Controller
                 $em->persist($utente);
                 $em->flush();
                 $out['status'] = 'OK';
-                $out['msg'] = 'SUCCESS!';
+                $out['template'] = $this->renderView(':default:success.html.twig',array('utente' => $utente));
                 $response->setData($out);
                 return $response;
             }else{
                 $errors = $form->getErrors(true,true);
-
                 $msg['status'] = 'KO';
                 foreach ($errors as $error) {
-                    $err[] = $error->getMessage(). '<br/>';
+                    $err[] = $error->getMessage();
                 }
-                $response->setData(array('status' => 'KO','errors' => $err));
-
+                $response->setData(array('status' => 'KO','template' => $this->renderView(':default:errors.html.twig',array('errors' => $err))));
                 return $response;
             }
         }

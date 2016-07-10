@@ -9,9 +9,9 @@ $(document).ready(function () {
             data: form.serialize(),
             success: function (msg) {
                 if(msg.status == 'OK'){
-                    $("#feedback").html(msg.msg);
+                    $("#feedback").html(msg.template);
                 }else{
-                    $("#feedback").html(msg.errors);
+                    $("#feedback").html(msg.template);
                 }
             },
             error: function () {
