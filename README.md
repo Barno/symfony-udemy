@@ -1,4 +1,12 @@
-Udemy
+Symfony - Udemy
+(URL)
 =====
 
-A Symfony project created on June 8, 2016, 7:44 pm.
+Ricette di riferimento del corso (URL)
+
+clonare il progetto
+git clone git@github.com:Barno/symfony-udemy.git
+composer install
+
+Enjoy
+
