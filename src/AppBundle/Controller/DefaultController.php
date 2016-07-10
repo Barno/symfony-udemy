@@ -21,9 +21,12 @@ class DefaultController extends Controller {
    * @Method({"GET"})
    */
   public function jsonAction(Request $request) {
-    $data = json_encode(['username' => 'alessio']);
-    $response = new Response($data);
-    $response->headers->set('content-type','application/json');
+    //$data = json_encode(['username' => 'alessio']);
+    //$response = new Response($data);
+    //$response->headers->set('content-type','application/json');
+
+    $response = new JsonResponse(['username' => 'alessio']);
+
     return $response;
   }
 
