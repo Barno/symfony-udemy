@@ -2,10 +2,12 @@
 
 {% block body %}
     <h1>Master</h1>
-    {{ form_start(form,{'attr':{'id':'form-user','novalidate':'novalidate'}}) }}
-    {{ form_widget(form) }}
-    <button type="submit">Invia</button>
-    {{ form_end(form) }}
+    <div id="form_user">
+        {{ form_start(form,{'attr':{'id':'form-user','novalidate':'novalidate'}}) }}
+        {{ form_widget(form) }}
+        <button type="submit">Invia</button>
+        {{ form_end(form) }}
+    </div>
     <div id="feedback"></div>
 {% endblock %}
 
