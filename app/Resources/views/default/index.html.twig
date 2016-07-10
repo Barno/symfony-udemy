@@ -8,3 +8,9 @@
     <button type="submit">Invia</button>
     {{ form_end(form) }}
 {% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    <script src="{{ asset('js/form.js') }}"></script>
+
+{% endblock %}
