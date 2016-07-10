@@ -2,5 +2,7 @@
 
 {% block body %}
     <h1>Master</h1>
-    {{ dump(res) }}
+
+    {{ dump(app.request.cookies) }}
+
 {% endblock %}
