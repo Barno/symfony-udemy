@@ -3,10 +3,11 @@
 {% block body %}
     <h1>Master</h1>
 
-    {{ form_start(form,{'attr':{'novalidate':'novalidate'}}) }}
+    {{ form_start(form,{'attr':{'id':'form-user','novalidate':'novalidate'}}) }}
     {{ form_widget(form) }}
     <button type="submit">Invia</button>
     {{ form_end(form) }}
+    <div id="feedback"></div>
 {% endblock %}
 
 {% block javascripts %}
