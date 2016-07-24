@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+    <file source-language="en" datatype="plaintext" original="file.ext">
+        <body>
+            <trans-unit id="symfony_is_great">
+                <source>symfony_is_great</source>
+                <target>Amo Symfony</target>
+            </trans-unit>
+            <trans-unit id="amici">
+                <source>amici</source>
+                <target>{0}Non ci sono amici per %nome%  |{1} uno o piu amici per %nome%| ]1,Inf] moltissimi amici per %nome%</target>
+            </trans-unit>
+        </body>
+    </file>
+</xliff>

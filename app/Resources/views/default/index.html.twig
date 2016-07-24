@@ -1,29 +1,16 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h1>Twig</h1>
+    <h1>Twig - Filtri</h1>
 
-    {# Stampo gli attributi #}
-    {{ foo.nome }}
-    {{ foo.nickname }}
-    {{ foo.prima-pagina }}
+    {{ ['a','b','c']|join(', ')|upper|lower }}
+    <hr>
+    <br/>
+    {% set nome ="AlessioBarnini" %}
 
-    {# Stampo gli attributi #}
-    {{ foo['nome'] }}
-    {{ foo['nickname'] }}
-    {{ foo['data-di-nascita'] }}
-
-    {# Stampo gli attributi #}
-    {{ attribute(foo,'nome') }}
-    {{ attribute(foo,'data-di-nascita') }}
-    {{ attribute(foo,'prima-pagina') }}
-
-    {{ app.request.baseUrl }}
-    {{ app.request.getBaseUrl }}
-
-    {{ _charset }}
-    {{dump(_context)  }}
-    {{dump(_self)  }}
+    {{ nome|humanize|title }}
+    <br/>
+    {{ nome }}
 
 
 {% endblock %}

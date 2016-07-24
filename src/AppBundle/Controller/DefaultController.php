@@ -13,11 +13,7 @@ class DefaultController extends Controller
      */
     public function indexAction(Request $request)
     {
-        $foo['nome'] = 'Alessio';
-        $foo['nickname'] = 'Barno';
-        $foo['data-di-nascita'] = '1983';
-        $foo['prima'] = 0;
-        $foo['prima-pagina'] = 1;
-        return $this->render('default/index.html.twig',array('foo' => $foo,'pagina' => 15));
+
+        return $this->render('default/index.html.twig',array());
     }
 }
