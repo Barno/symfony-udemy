@@ -4,11 +4,11 @@
         <body>
             <trans-unit id="symfony_is_great">
                 <source>symfony_is_great</source>
-                <target>Symfony is great</target>
+                <target>%utente% Symfony is great</target>
             </trans-unit>
             <trans-unit id="amici">
                 <source>amici</source>
-                <target>{0}No friends for %nome% |{1}One firend for %nome%| ]1,Inf] A lot of friend for %nome%</target>
+                <target>{0} No friends for %nome% |{1} One friend for %nome%|{2} Two friends for %nome% | ]2,Inf] A lot of friends for %nome%</target>
             </trans-unit>
         </body>
     </file>

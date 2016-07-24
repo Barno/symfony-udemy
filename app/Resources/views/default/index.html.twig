@@ -3,6 +3,25 @@
 {% block body %}
     <h1>Twig - Filtri</h1>
 
+
+    {{ 'symfony_is_great'|trans({'%utente%':nome},'messages','it') }}
+
+    {% set var = 'amici' %}
+
+    {{ var|transchoice(0,{'%nome%':nome}) }}
+    <br/>
+    {{ var|transchoice(1,{'%nome%':nome}) }}
+    <br/>
+    {{ var|transchoice(2,{'%nome%':nome}) }}
+    <br/>
+    {{ var|transchoice(100,{'%nome%':nome}) }}
+
+
+
+<hr/>
+<hr/>
+<hr/>
+
     {{ ['a','b','c']|join(', ')|upper|lower }}
     <hr>
     <br/>
