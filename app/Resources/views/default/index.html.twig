@@ -25,4 +25,31 @@
     <br/>
     {{ 'last day of December 2016'|date("m/D/y") }}
 
+    <hr>
+
+    {% for user in users|keys %}
+        {{ user }}
+    {% endfor %}
+    <br>
+    {% for user in users|slice(0,1) %}
+        {{ user }}
+    {% endfor %}
+    <br>
+    {% for user in users|slice(-1) %}
+        {{ user }}
+    {% endfor %}
+    <br>
+<hr>
+    {% for user in users %}
+        {{ user }}
+    {% endfor %}
+    <br>
+
+    {% for user in users|sort %}
+        {{ user }}
+    {% endfor %}
+
+    {{ users|length }}
+
+
 {% endblock %}
