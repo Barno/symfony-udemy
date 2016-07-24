@@ -24,7 +24,8 @@ class DefaultController extends Controller {
             'users' => $users,
             'nome' => $nome,
             'welcome' => $welcome,
-            'javascript' => "<script>alert('hello Mr Robot')</script>"
+            'javascript' => "<script>alert('hello Mr Robot')</script>",
+            'pippo' => "PIPPO",
     ));
   }
 }

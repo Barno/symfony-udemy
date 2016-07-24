@@ -3,6 +3,18 @@
 {% block body %}
     <h1>Twig - Filtri</h1>
 
+    {{ utente }}
+    <br>
+
+    {{ pippo|default('non si sono amici di pippo') }}
+
+    {{ [1,2,3,4,5]|first }}
+    {{ [1,2,3,4,5]|last }}
+    <br>
+    {{ {a:1,b:2,c:3,d:4}|first }}
+    {{ {a:1,b:2,c:3,d:4}|last }}
+    {{ 'abc'|last }}
+    <br>
     {{ welcome|escape }}
     {{ welcome|raw }}
 
