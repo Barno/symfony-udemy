@@ -13,7 +13,10 @@ class DefaultController extends Controller
      */
     public function indexAction(Request $request)
     {
-
-        return $this->render('default/index.html.twig',array());
+        $date = new \DateTime("now");
+        $date = $date->format('d-m-Y H:i:s');
+        return $this->render('default/index.html.twig',array(
+            'date' => $date
+        ));
     }
 }

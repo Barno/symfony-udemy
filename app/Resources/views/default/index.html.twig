@@ -11,6 +11,18 @@
     {{ nome|humanize|title }}
     <br/>
     {{ nome }}
+    <hr>
 
+    {{ "now" |date(timezone="Europe/Rome", Format="H:i") }}
+    <br/>
+    {{ date |date(timezone="Europe/Rome", Format="H:i") }}
+    <br/>
+    {{ date |date(Format="m/D/Y") }}
+    <br/>
+    {{ "now" |date_modify("+1 day")|date(timezone="Europe/London", Format="m/D/Y") }}
+    <br/>
+    {{ 'first day of January'|date("m/D/y") }}
+    <br/>
+    {{ 'last day of December 2016'|date("m/D/y") }}
 
 {% endblock %}
