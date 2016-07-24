@@ -16,10 +16,15 @@ class DefaultController extends Controller {
 
     $users = ['cognone' => 'Barnini', 'nome' => 'Alessio', 'citta' => 'Livorno'];
     $nome = 'Barno';
+
+    $welcome = "<h2>Welcome</h2>";
+
     return $this->render('default/index.html.twig', array(
             'date' => $date,
             'users' => $users,
-            'nome' => $nome
+            'nome' => $nome,
+            'welcome' => $welcome,
+            'javascript' => "<script>alert('hello Mr Robot')</script>"
     ));
   }
 }

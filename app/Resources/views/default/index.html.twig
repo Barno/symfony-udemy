@@ -3,7 +3,16 @@
 {% block body %}
     <h1>Twig - Filtri</h1>
 
+    {{ welcome|escape }}
+    {{ welcome|raw }}
 
+    {{ javascript }}
+
+    <button id="btn" data-profilo="{{ javascript|e('js') }}">cliccami</button>
+
+    <div id="result"></div>
+    <hr/>
+    <hr/>
     {{ 'symfony_is_great'|trans({'%utente%':nome},'messages','it') }}
 
     {% set var = 'amici' %}
@@ -15,12 +24,7 @@
     {{ var|transchoice(2,{'%nome%':nome}) }}
     <br/>
     {{ var|transchoice(100,{'%nome%':nome}) }}
-
-
-
-<hr/>
-<hr/>
-<hr/>
+    <hr/>
 
     {{ ['a','b','c']|join(', ')|upper|lower }}
     <hr>
@@ -58,7 +62,7 @@
         {{ user }}
     {% endfor %}
     <br>
-<hr>
+    <hr>
     {% for user in users %}
         {{ user }}
     {% endfor %}
@@ -71,4 +75,9 @@
     {{ users|length }}
 
 
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    <script src="{{ asset('js/main.js') }}"></script>
 {% endblock %}
