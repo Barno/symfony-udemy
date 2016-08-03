@@ -10,4 +10,12 @@
 
 {% include [':default/utente:utente_foo.html.twig',':default/utente:utente.html.twig'] ignore missing  with {'foo':'bar'} only  %}
 
+<hr>
+<h1>Twig Function</h1>
 
+{{ include(':default/utente:utente.html.twig',{'foo':'barFunction'},with_context=false)}}
+
+{{ include(':default:indexsssssss.html.twig',ignore_missing=true) }}
+<br/>
+<br/>
+{{ include([':default/utente:utente_foo.html.twig',':default/utente:utente.html.twig'],{'foo':'bar'},ignore_missing=true,with_context=false) }}
