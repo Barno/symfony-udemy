@@ -3,7 +3,7 @@
 {% block body %}
     <h1>Twig - Filtri</h1>
 
-    {{ utente }}
+    {#{{ utente }}#}
     <br>
 
     {{ pippo|default('non si sono amici di pippo') }}
@@ -20,7 +20,10 @@
 
     {{ javascript }}
 
-    <button id="btn" data-profilo="{{ javascript|e('js') }}">cliccami</button>
+    {#<button id="btn" data-profilo="{{ javascript|e('js') }}">cliccami</button>#}
+    {% autoescape 'js' %}
+    <button id="btn" data-profilo="{{ javascript }}">cliccami</button>
+    {% endautoescape%}
 
     <div id="result"></div>
     <hr/>

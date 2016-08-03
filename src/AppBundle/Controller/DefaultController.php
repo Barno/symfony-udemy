@@ -7,8 +7,9 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 
 class DefaultController extends Controller {
+
   /**
-   * @Route("/{_locale}/", name="homepage")
+   * @Route("/{_locale}/", name="homepage",requirements={"_locale": "en|it"})
    */
   public function indexAction(Request $request) {
     $date = new \DateTime("now");
@@ -27,5 +28,13 @@ class DefaultController extends Controller {
             'javascript' => "<script>alert('hello Mr Robot')</script>",
             'pippo' => "PIPPO",
     ));
+  }
+
+  /**
+   * @Route("/tag", name="tag")
+   */
+  public function funzioniAction(Request $request) {
+
+    return $this->render('default/funzioni.html.twig', array());
   }
 }

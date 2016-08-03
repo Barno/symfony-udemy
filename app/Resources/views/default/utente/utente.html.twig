@@ -1,0 +1,11 @@
+Twig Incluso
+
+{#{% if utente is not defined %}#}
+    {#{% set utente = 'utente interno' %}#}
+{#{% endif %}#}
+
+
+
+{{ utente|default('utente interno Default') }}
+<br/>
+{{ foo }}

@@ -1,0 +1,13 @@
+<h1>Twig Tag</h1>
+
+{% set utente = 'alessio' %}
+
+{% set foo = 'Barno' %}
+
+{% include ':default/utente:utente.html.twig' with {'foo':'bar'} only %}
+
+{% include ':default/utente:utente_foo.html.twig' ignore missing %}
+
+{% include [':default/utente:utente_foo.html.twig',':default/utente:utente.html.twig'] ignore missing  with {'foo':'bar'} only  %}
+
+
