@@ -37,4 +37,19 @@ class DefaultController extends Controller {
 
     return $this->render('default/funzioni.html.twig', array());
   }
+
+  /**
+   * @Route("/for", name="for")
+   */
+  public function forAction(Request $request) {
+
+    $users[] = ['nome' => 'alessio','cognome' => 'barnini','interessi'=>['calcio','skate','yoga'],'anni' => 33];
+    $users[] = ['nome' => 'marco','cognome' => 'rossi','interessi'=>['basket','surf'] , 'anni' => '33'];
+    $users[] = ['nome' => 'arianna','cognome' => 'verdi','interessi'=>'cucina','anni' => 36];
+
+
+    return $this->render('default/for.html.twig', array(
+      'users' => $users
+    ));
+  }
 }

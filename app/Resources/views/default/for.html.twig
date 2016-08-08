@@ -1,0 +1,40 @@
+<h1>For</h1>
+
+{{ dump(users) }}
+
+<ul>
+    {% for user in users if user.anni >= 180 %}
+        <li>
+            {{ user.nome }}
+
+            {% if user.anni == 33%}
+                <p>Hai l'età giusta per questo portale</p>
+            {% endif%}
+
+            {% if user.anni is same as (33)%}
+                <p>Te hai veramente l'eta giusta!</p>
+            {% endif%}
+
+            {% if user.interessi is iterable %}
+                <ul class="utente-{{ loop.index0 }}">
+                    {% for interesse in user.interessi %}
+                        {% if loop.first %}
+                            <div style="background-color: #5eb5e0; border-top: 1px solid brown">
+                        {% endif %}
+                        <li> {{ loop.parent.user.nome }} - {{ interesse }}</li>
+                        {% if loop.last %}
+                            </div>
+                        {% endif %}
+                    {% endfor %}
+                </ul>
+            {% else %}
+                <p>sei una prigra</p>
+                <ul>
+                    <li>{{ user.interessi }}</li>
+                </ul>
+            {% endif %}
+        </li>
+    {% else %}
+        <h1> non sei maggiorenne</h1>
+    {% endfor %}
+</ul>
