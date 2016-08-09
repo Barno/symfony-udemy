@@ -52,4 +52,23 @@ class DefaultController extends Controller {
       'users' => $users
     ));
   }
+
+  /**
+   * @Route("/extends", name="extends")
+   */
+  public function extendsAction(Request $request)
+  {
+    return $this->render('extends/extends.html.twig', array()
+    );
+  }
+
+  /**
+   * @Route("/primo", name="primo")
+   */
+  public function primoAction(Request $request)
+  {
+    return $this->render('extends/primo.html.twig', array(
+            )
+    );
+  }
 }

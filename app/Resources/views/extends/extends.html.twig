@@ -1,0 +1,16 @@
+{#{% extends '::base.html.twig' %}#}
+
+{% extends ['layout.html.twig','::base.html.twig'] %}
+
+
+{% block body %}
+    {{ parent() }}
+    <h1> Contenuto Extends</h1>
+
+    {{ block('custom') }}
+
+{% endblock %}
+
+{%  block custom %}
+    pippo
+{%  endblock %}
