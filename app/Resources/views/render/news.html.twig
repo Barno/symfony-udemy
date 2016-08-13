@@ -1,0 +1,6 @@
+<h1>News</h1>
+
+
+{% for notizia in news|slice(0,max) %}
+<li>{{ notizia.testo|capitalize }}</li>
+{% endfor %}
