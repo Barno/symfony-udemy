@@ -9,10 +9,21 @@ use Symfony\Component\HttpFoundation\Request;
 class DefaultController extends Controller
 {
     /**
-     * @Route("/", name="homepage")
+     * @Route("/{nome}/{ruolo}/{eta}", name="homepage_stringa",requirements={"nome":"\D+"})
      */
-    public function indexAction(Request $request)
+    public function indexAction(Request $request,$nome,$ruolo)
     {
+
+        echo $request->attributes->get('_controller');
+        return $this->render('default/index.html.twig',array());
+    }
+
+    /**
+     * @Route("/{nome}", name="homepage_numerica",requirements={"nome":"\d+"})
+     */
+    public function index2Action(Request $request,$nome)
+    {
+        echo $request->attributes->get('_controller');
         return $this->render('default/index.html.twig',array());
     }
 }
