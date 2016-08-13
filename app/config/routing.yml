@@ -1,17 +1,14 @@
-#app:
-#    resource: "@AppBundle/Controller/"
-#    type:     annotation
+app:
+    resource: "@AppBundle/Controller/"
+    type:     annotation
 
 
-homepage_stringa:
-    path: /{nome}/{ruolo}
-    defaults: {_controller: AppBundle:Default:index}
-    requirements:
-        nome: \D+
-
-homepage_numerica:
-    path: /{nome}
-    defaults: {_controller: AppBundle:Default:index2}
-    requirements:
-        nome: \d+
+#homepage_stringa:
+#    path: /{nome}/{ruolo}
+#    defaults: {_controller: AppBundle:Default:index}
+#    methods: [GET,POST]
+#    schemes: [https|http]
+##    host: m.example.com
+#    requirements:
+#        nome: \D+
 
