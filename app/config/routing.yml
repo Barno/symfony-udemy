@@ -1,14 +1,16 @@
-app:
-    resource: "@AppBundle/Controller/"
-    type:     annotation
+#app:
+#    resource: "@AppBundle/Controller/"
+#    type:     annotation
+#
+#
 
-
-#homepage_stringa:
-#    path: /{nome}/{ruolo}
-#    defaults: {_controller: AppBundle:Default:index}
-#    methods: [GET,POST]
-#    schemes: [https|http]
-##    host: m.example.com
-#    requirements:
-#        nome: \D+
+homepage_stringa:
+    path: /{nome}/{ruolo}.{_format}
+    defaults: {_controller: AppBundle:Default:index, ruolo: ADMIN,_format: html}
+    methods: [GET,POST]
+    schemes: [https|http]
+#    host: m.example.com
+    requirements:
+        nome: "[a-z]{0,}"
+        _format: html|xml
 

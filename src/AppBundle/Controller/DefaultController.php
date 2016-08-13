@@ -2,26 +2,21 @@
 
 namespace AppBundle\Controller;
 
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 
 class DefaultController extends Controller
 {
-    /**
-     * @Route("/{nome}/{ruolo}",name="homepage_stringa",schemes={"http","https"},host="m.example.com")
-     * @Method({"GET","POST"})
-     */
-    public function indexAction(Request $request,$nome,$ruolo)
+    public function indexAction(Request $request,$nome,$ruolo,$_format)
     {
 
-        //echo $request->attributes->get('_route_params')['nome'];
+        //var_dump($request->attributes->get('_route_params'));
         //echo "<br>";
         //echo $request->attributes->get('ruolo');
-
-        echo $request->attributes->get('_controller');
-        return $this->render('default/index.html.twig',array());
+        //echo "<br>";
+        //
+        //echo $request->attributes->get('_controller');
+        return $this->render('default/index.'.$_format.'.twig',array());
     }
 
 }
