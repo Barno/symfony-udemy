@@ -1,0 +1,29 @@
+<h1>Riservato</h1>
+
+
+{{ facebook_id }}
+<br>
+
+{{ app.user.username }}
+
+{{ dump(app.user) }}
+{{ dump(app.request) }}
+{{ dump(app.session) }}
+{{ dump(app.environment) }}
+{{ dump(app.debug) }}
+
+
+
+{% if is_granted('ROLE_USER') %}
+    <h1>Sei un ROLE USER</h1>
+{% endif %}
+
+{% if is_granted('ROLE_ADMIN') %}
+    <h1>Sei un ROLE ADMIN</h1>
+{% endif %}
+
+{{ app.request.attributes.get('_controller') }}
+<br>
+{{ app.request.attributes.get('_route') }}
+<br>
+{{dump( app.request.attributes.get('_route_params') )}}

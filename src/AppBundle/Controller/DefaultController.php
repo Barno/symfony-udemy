@@ -101,5 +101,12 @@ class DefaultController extends Controller {
     );
   }
 
+  /**
+   * @Route("/riservato/{foo}", name="riservato",defaults={"foo":1})
+   */
+  public function securityAction(Request $request) {
+    return $this->render('riservato/riservato.html.twig', array()
+    );
+  }
 
 }
