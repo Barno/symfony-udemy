@@ -1,6 +1,6 @@
-#app:
-#    resource: "@AppBundle/Controller/"
-#    type:     annotation
+app:
+    resource: "@AppBundle/Controller/"
+    type:     annotation
 
 
 #
@@ -15,6 +15,6 @@
 #        _format: html|xml
 #        _locale: '%app.locales%'
 
-app:
-    resource: "@AppBundle/Resources/config/rotte.yml"
-    prefix: /admin
+#app:
+#    resource: "@AppBundle/Resources/config/rotte.yml"
+#    prefix: /admin
