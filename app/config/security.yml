@@ -1,16 +1,21 @@
 # To get started with security, check out the documentation:
 # http://symfony.com/doc/current/book/security.html
 security:
+
+    access_denied_url: "/accesso_negato"
+
     encoders:
-        Symfony\Component\Security\Core\User\User: plaintext
+        Symfony\Component\Security\Core\User\User:
+            algorithm: bcrypt
+            cost: 12
 
     # http://symfony.com/doc/current/book/security.html#where-do-users-come-from-user-providers
     providers:
         in_memory:
             memory:
                 users:
-                    alessio: { password: barno, roles: ['ROLE_USER']}
-                    pippo: { password: pippo, roles: ['ROLE_ADMIN']}
+                    alessio: { password: $2y$12$65xwQpdFwhA4PoTGs31FcOvZgoa3SzUjCUD.jrutERN4te1WP56dO, roles: ['ROLE_USER']}
+                    pippo: { password: $2y$12$xDQa0ScZqd45WVFvpteL7e.PnT5fU217wkSF9F2R1DK4zZZfe52wy, roles: ['ROLE_ADMIN']}
 
     firewalls:
         # disables authentication for assets and the profiler, adapt it according to your needs
