@@ -10,7 +10,7 @@ security:
             memory:
                 users:
                     alessio: { password: barno, roles: ['ROLE_USER']}
-                    pippo: { password: pippo, roles: ['ROLE_USER','ROLE_ADMIN']}
+                    pippo: { password: pippo, roles: ['ROLE_ADMIN']}
 
     firewalls:
         # disables authentication for assets and the profiler, adapt it according to your needs
@@ -28,5 +28,5 @@ security:
             # form_login: ~
             # http://symfony.com/doc/current/cookbook/security/form_login_setup.html
 
-    access_control:
-        - { path: ^/admin, role: [ROLE_USER] }
+#    access_control:
+#        - { path: ^/admin, role: [ROLE_USER] }
