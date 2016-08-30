@@ -23,9 +23,9 @@ class DefaultController extends Controller
     public function adminAction(Request $request)
     {
 
-        if (!$this->get('security.authorization_checker')->isGranted('ROLE_ADMIN')) {
-            throw new AccessDeniedException('Non sei un amministratore');
-        }
+        //if (!$this->get('security.authorization_checker')->isGranted('ROLE_ADMIN')) {
+        //    throw new AccessDeniedException('Non sei un amministratore');
+        //}
 
         $this->denyAccessUnlessGranted('ROLE_ADMIN', null, 'Accesso negato');
         //$response = new Response('Admin');

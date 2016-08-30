@@ -2,4 +2,16 @@
 
 {% block body %}
     <h1>Master</h1>
+    {{ dump(app.user) }}
+
+    {% if is_granted('ROLE_ADMIN') %}
+        <a href="...">Delete</a>
+    {% endif %}
+
+    {% if is_granted('ROLE_USER') %}
+        <a href="...">Delete 2</a>
+    {% endif %}
+
+
+
 {% endblock %}
