@@ -5,6 +5,7 @@ namespace AppBundle\Controller;
 use AppBundle\Entity\User;
 use AppBundle\Form\UserType;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -45,11 +46,12 @@ class DefaultController extends Controller
 
     /**
      * @Route("/riservato", name="riservato")
+     * @Security("has_role('ROLE_ADMIN')")
      */
     public function risevatoAction(Request $request)
     {
        $response = new Response("riservato");
-        var_dump($this->getUser());
+        //var_dump($this->getUser());
         return $response;
     }
 

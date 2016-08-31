@@ -58,6 +58,7 @@ class User implements UserInterface, \Serializable
     private $password;
 
     /**
+     * @Assert\Count(min=1,minMessage="Select at least one Role")
      * @ORM\ManyToMany(targetEntity="AppBundle\Entity\Role", inversedBy="users")
      */
     private $roles;
