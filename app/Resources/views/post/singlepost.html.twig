@@ -2,5 +2,8 @@
 
 {% block body %}
     <p>{{ post.id }} - {{ post.description }}  </p>
-<p><a href="{{ path('delete_post',{'id':post.id} ) }}">Cancella Post</a></p>
+
+    {% if is_granted('delete',post) %}
+        <p><a href="{{ path('delete_post',{'id':post.id} ) }}">Cancella Post</a></p>
+    {% endif %}
 {% endblock %}

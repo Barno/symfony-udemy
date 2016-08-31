@@ -6,8 +6,10 @@ use AppBundle\Entity\Post;
 use AppBundle\Form\PostType;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpKernel\Exception\AccessDeniedHttpException;
 use Symfony\Component\Security\Core\Exception\AccessDeniedException;
 use Symfony\Component\Security\Core\User\UserInterface;
 
@@ -63,9 +65,15 @@ class PostController extends Controller
      * //http://symfony.com/doc/current/bundles/SensioFrameworkExtraBundle/annotations/converters.html
      * @Route("/delete_post/{id}",name="delete_post")
      * @ParamConverter("posts",class="AppBundle:Post")
+     * @Security("is_granted('delete',post)")
      */
     public function deletePostAction(Request $request,Post $post)
     {
+
+        //if($this->denyAccessUnlessGranted('delete',$post)){
+        //    throw new AccessDeniedHttpException('Questo non è un tuo post');
+        //}
+
         $em = $this->getDoctrine()->getManager();
         $em->remove($post);
         $em->flush();
