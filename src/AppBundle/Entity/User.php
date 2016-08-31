@@ -19,6 +19,7 @@ class User implements UserInterface, \Serializable
 {
 
 
+
     /**
      * @var int
      *
@@ -177,6 +178,16 @@ class User implements UserInterface, \Serializable
                 ) = unserialize($serialized);
     }
 
+    public function getPlainPassword()
+    {
+        return $this->plainPassword;
+    }
+
+    public function setPlainPassword($password)
+    {
+        $this->plainPassword = $password;
+    }
+
+
 
 }
-
