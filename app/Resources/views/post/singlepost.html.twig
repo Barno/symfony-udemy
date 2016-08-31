@@ -1,0 +1,6 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <p>{{ post.id }} - {{ post.description }}  </p>
+<p><a href="{{ path('delete_post',{'id':post.id} ) }}">Cancella Post</a></p>
+{% endblock %}

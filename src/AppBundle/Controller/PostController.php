@@ -4,6 +4,7 @@ namespace AppBundle\Controller;
 
 use AppBundle\Entity\Post;
 use AppBundle\Form\PostType;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
@@ -36,7 +37,38 @@ class PostController extends Controller
         }
 
         return $this->render(':post:post.html.twig',array('form' => $form->createView()));
+    }
 
+    /**
+     * @Route("/wall",name="wall")
+     */
+    public function wallAction(Request $request)
+    {
+        $em = $this->getDoctrine()->getManager();
+        $posts = $em->getRepository('AppBundle:Post')->findAll();
+        return $this->render(':post:wall.html.twig',array('posts' => $posts));
+    }
 
+    /**
+     * //http://symfony.com/doc/current/bundles/SensioFrameworkExtraBundle/annotations/converters.html
+     * @Route("/posts/{id}",name="single_post")
+     * @ParamConverter("posts",class="AppBundle:Post")
+     */
+    public function getPostAction(Request $request,Post $post)
+    {
+        return $this->render(':post:singlepost.html.twig',array('post' => $post));
+    }
+
+    /**
+     * //http://symfony.com/doc/current/bundles/SensioFrameworkExtraBundle/annotations/converters.html
+     * @Route("/delete_post/{id}",name="delete_post")
+     * @ParamConverter("posts",class="AppBundle:Post")
+     */
+    public function deletePostAction(Request $request,Post $post)
+    {
+        $em = $this->getDoctrine()->getManager();
+        $em->remove($post);
+        $em->flush();
+        return $this->redirectToRoute('wall');
     }
 }

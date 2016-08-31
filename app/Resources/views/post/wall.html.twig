@@ -1,0 +1,18 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+    {% if posts|length > 0 %}
+
+        {% for post in posts %}
+            <p>{{ post.id }} - {{ post.description }}  </p>
+            <p><a href="{{ path('single_post',{'id':post.id}) }}">Dettaglio</a></p>
+            <hr>
+        {% endfor %}
+
+
+    {% else %}
+        <p><a href="{{ path('posts') }}">Crea il tuo primo Post</a></p>
+    {% endif %}
+
+{% endblock %}
