@@ -2,6 +2,8 @@
 
 namespace AppBundle\Form;
 
+use AppBundle\Repository\RoleRepository;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\Extension\Core\Type\RepeatedType;
@@ -25,6 +27,20 @@ class UserType extends AbstractType
                     'type' => PasswordType::class,
                     'first_options' => array('label' => 'Password'),
                     'second_options' => array('label' => 'Repeat Password'),
+            ))
+            ->add('roles',EntityType::class,array(
+               'label' => 'Roles',
+                'class' => 'AppBundle:Role',
+               'multiple' => true,
+               'expanded' => true,
+                'query_builder' => function(RoleRepository $er) {
+                    return $er->getRoles();
+                },
+               //'query_builder' => function(RoleRepository $er) {
+               //    return $er->createQueryBuilder('r')
+               //            ->orderBy('r.id','ASC');
+               //},
+               'choice_label' => 'name',
             ))
         ;
     }

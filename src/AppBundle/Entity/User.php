@@ -2,6 +2,7 @@
 
 namespace AppBundle\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Security\Core\User\UserInterface;
@@ -56,6 +57,18 @@ class User implements UserInterface, \Serializable
      */
     private $password;
 
+    /**
+     * @ORM\ManyToMany(targetEntity="AppBundle\Entity\Role", inversedBy="users")
+     */
+    private $roles;
+
+    /**
+     * @param string $role
+     */
+    public function __construct()
+    {
+        $this->roles = new ArrayCollection();
+    }
 
     /**
      * Get id
@@ -141,7 +154,7 @@ class User implements UserInterface, \Serializable
 
     public function getRoles()
     {
-        return array('ROLE_USER');
+        return $this->roles->toArray();
     }
 
     public function getSalt()
@@ -190,4 +203,28 @@ class User implements UserInterface, \Serializable
 
 
 
+
+    /**
+     * Add role
+     *
+     * @param \AppBundle\Entity\Role $role
+     *
+     * @return User
+     */
+    public function addRole(\AppBundle\Entity\Role $role)
+    {
+        $this->roles[] = $role;
+
+        return $this;
+    }
+
+    /**
+     * Remove role
+     *
+     * @param \AppBundle\Entity\Role $role
+     */
+    public function removeRole(\AppBundle\Entity\Role $role)
+    {
+        $this->roles->removeElement($role);
+    }
 }
