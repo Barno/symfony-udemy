@@ -30,6 +30,7 @@ security:
 
         main:
             anonymous: ~
+            pattern: ^/
             form_login:
                 login_path: login
                 check_path: login
@@ -51,5 +52,10 @@ security:
             # form_login: ~
             # http://symfony.com/doc/current/cookbook/security/form_login_setup.html
 
-#    access_control:
+    access_control:
+        - { path: ^/login$, roles: IS_AUTHENTICATED_ANONYMOUSLY}
+        - { path: ^/register, roles: IS_AUTHENTICATED_ANONYMOUSLY}
+        - { path: ^/$, roles: IS_AUTHENTICATED_ANONYMOUSLY}
+        - { path: ^/, roles: IS_AUTHENTICATED_REMEMBERED}
+#        - { path: ^/, roles: IS_AUTHENTICATED_FULLY}
 #        - { path: ^/admin, role: [ROLE_USER] }

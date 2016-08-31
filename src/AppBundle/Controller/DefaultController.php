@@ -7,6 +7,7 @@ use AppBundle\Form\UserType;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Security\Core\Exception\AccessDeniedException;
 
 class DefaultController extends Controller
@@ -40,6 +41,16 @@ class DefaultController extends Controller
         }
 
         return $this->render('registration/register.html.twig', array('form' => $form->createView()));
+    }
+
+    /**
+     * @Route("/riservato", name="riservato")
+     */
+    public function risevatoAction(Request $request)
+    {
+       $response = new Response("riservato");
+        var_dump($this->getUser());
+        return $response;
     }
 
 
