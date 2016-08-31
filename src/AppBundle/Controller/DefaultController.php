@@ -65,7 +65,8 @@ class DefaultController extends Controller
      */
     public function adminAction(Request $request)
     {
-        $this->denyAccessUnlessGranted('ROLE_ADMIN', null, 'Accesso negato');
-        return $this->render('default/index.html.twig', array());
+        $this->denyAccessUnlessGranted('ROLE_MODERATORE', null, 'Accesso negato');
+        $response = new Response('ADMIN');
+        return $response;
     }
 }

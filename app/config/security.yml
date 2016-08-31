@@ -21,14 +21,19 @@ security:
         in_memory:
             memory:
                 users:
-                    alessio: { password: $2y$12$65xwQpdFwhA4PoTGs31FcOvZgoa3SzUjCUD.jrutERN4te1WP56dO, roles: ['ROLE_USER__']}
-                    pippo2: { password: $2y$12$xDQa0ScZqd45WVFvpteL7e.PnT5fU217wkSF9F2R1DK4zZZfe52wy, roles: ['ROLE_ADMIN__']}
+                    alessio_barno: { password: $2y$12$65xwQpdFwhA4PoTGs31FcOvZgoa3SzUjCUD.jrutERN4te1WP56dO, roles: ['ROLE_MODERATORE']}
+                    pippo2: { password: $2y$12$xDQa0ScZqd45WVFvpteL7e.PnT5fU217wkSF9F2R1DK4zZZfe52wy, roles: ['ROLE_MODERATORE']}
 
     firewalls:
         # disables authentication for assets and the profiler, adapt it according to your needs
         dev:
             pattern: ^/(_(profiler|wdt)|css|images|js)/
             security: false
+
+        admin:
+            pattern: ^/admin$
+            provider: in_memory
+            http_basic: ~
 
         main:
             anonymous: ~
