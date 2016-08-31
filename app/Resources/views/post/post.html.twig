@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>POST</h1>
+    {{ form_start(form) }}
+    {{ form_row(form.description) }}
+    <button type="submit">Post!</button>
+    {{ form_end(form) }}
+
+
+{% endblock %}
