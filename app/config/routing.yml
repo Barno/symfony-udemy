@@ -7,3 +7,6 @@ accesso_negato:
     defaults:
         _controller: FrameworkBundle:Template:template
         template: /default/forbidden.html.twig
+
+logout:
+    path: /logout

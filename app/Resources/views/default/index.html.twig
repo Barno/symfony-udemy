@@ -3,7 +3,13 @@
 {% block body %}
     <h1>Master</h1>
 
-    <p><a href="{{ path('register') }}">Registrati</a></p>
+    {% if app.user %}
+        <p><a href="{{ path('logout') }}">Logout</a></p>
+
+    {% else%}
+        <p><a href="{{ path('register') }}">Registrati</a></p>
+        <p><a href="{{ path('login') }}">Login</a></p>
+    {% endif %}
 
 
 {% endblock %}
